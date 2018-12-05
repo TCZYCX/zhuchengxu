@@ -1,0 +1,12 @@
+﻿“tczycx.exe”(Win32): 已加载“C:\Users\10423\source\repos\tczycx\Debug\tczycx.exe”。已加载符号。
+“tczycx.exe”(Win32): 已加载“C:\Windows\SysWOW64\ntdll.dll”。无法查找或打开 PDB 文件。
+“tczycx.exe”(Win32): 已加载“C:\Windows\SysWOW64\kernel32.dll”。无法查找或打开 PDB 文件。
+“tczycx.exe”(Win32): 已加载“C:\Windows\SysWOW64\KernelBase.dll”。无法查找或打开 PDB 文件。
+“tczycx.exe”(Win32): 已加载“C:\Windows\SysWOW64\vcruntime140d.dll”。无法查找或打开 PDB 文件。
+“tczycx.exe”(Win32): 已加载“C:\Windows\SysWOW64\msvcp140d.dll”。无法查找或打开 PDB 文件。
+“tczycx.exe”(Win32): 已加载“C:\Windows\SysWOW64\ucrtbased.dll”。无法查找或打开 PDB 文件。
+线程 0x187c 已退出，返回值为 -1073741510 (0xc000013a)。
+线程 0x958 已退出，返回值为 -1073741510 (0xc000013a)。
+线程 0x1b6c 已退出，返回值为 -1073741510 (0xc000013a)。
+线程 0x464 已退出，返回值为 -1073741749 (0xc000004b)。
+程序“[27524] tczycx.exe”已退出，返回值为 -1073741510 (0xc000013a)。
