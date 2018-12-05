@@ -10,7 +10,7 @@ using namespace std;
 int main() {
 	system("color 2f");
 	int n, l;
- 	cout << "chenxin" << endl;
+ 	cout << "chenx" << endl;
 	cout << "输入结点数，边数:" << endl;
 	cin >> n >> l;
 	Create(n, l);
