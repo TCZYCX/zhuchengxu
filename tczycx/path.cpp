@@ -8,6 +8,7 @@ const int maxdist = 9999;
 
 void printpath(vector<int>& pre, int init, int fina)
 {
+	cout << "chenxin" << endl;
 	int temp;
 	temp = fina;
 	vector<int> t;
