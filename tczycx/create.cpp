@@ -11,6 +11,7 @@ const int maxdist = 9999;
 
 
 void Create(int n, int l) {
+	cout << "Test!" << endl;
 	vector<vector<int>> d(n + 1, vector<int>(n + 1));
 	for (int i = 1; i <= n; i++)
 	{
