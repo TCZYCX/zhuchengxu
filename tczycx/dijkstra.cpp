@@ -10,6 +10,7 @@ const int maxdist = 9999;
 
 void Dijkstra(int n, int v, vector<int> &dist, vector<int> &pre, vector<vector<int>> &d)
 {
+	
 	if (v < n) {
 		vector<bool> s(n + 1);
 		for (int i = 1; i <= n; i++)

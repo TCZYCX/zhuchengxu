@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef path_H
 #define path_H
 #include <vector>

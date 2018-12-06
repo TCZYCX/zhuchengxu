@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef Dijkstra_H
 #define Dijkstra_H
 #include <vector>

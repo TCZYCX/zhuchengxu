@@ -13,7 +13,12 @@ int main() {
  	cout << "chenx" << endl;
 	cout << "输入结点数，边数:" << endl;
 	cin >> n >> l;
-	Create(n, l);
-	system("pause");
+	while (1) {
+		n=Create(n, l);
+	//	n++;
+		system("pause");
+	}
+		
+	
 	return 0;
 }

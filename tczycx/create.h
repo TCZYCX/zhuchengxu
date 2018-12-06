@@ -1,4 +1,4 @@
-#pragma once
+
 #ifndef create_H
 #define create_H
 #include <vector>
@@ -7,8 +7,7 @@
 using namespace std;
 
 
-
-void Create(int n, int l);
+int Create(int n, int l);
 
 
 #endif
