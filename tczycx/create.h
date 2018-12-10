@@ -7,7 +7,7 @@
 using namespace std;
 
 
-int Create(int n, int l);
+void Create(int n, int l);
 
 
 #endif

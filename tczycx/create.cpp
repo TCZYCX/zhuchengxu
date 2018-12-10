@@ -10,9 +10,9 @@ using namespace std;
 const int maxdist = 9999;
 
 
-int Create(int n, int l) {
+void Create(int n, int l) {
 
-	vector<vector<int>> d(n + 1, vector<int>(n + 1));
+	vector<vector<int>> d(n + 4, vector<int>(n + 4));
 	for (int i = 1; i <= n; i++)
 	{
 		for (int j = 1; j <= n; j++)
@@ -56,8 +56,10 @@ int Create(int n, int l) {
 		}
 
 	}
-	vector<int> dist(n + 1), pre(n + 1);
-	
+	while (1) {
+		vector<int> dist(n + 4), pre(n + 4);
+
+
 
 		cout << "*************************路由表管理系统*********************" << endl;
 		cout << "**************1删除一个结点*********************************" << endl;
@@ -88,7 +90,7 @@ int Create(int n, int l) {
 					d[i][r] = maxdist;
 					d[r][i] = maxdist;
 				}
-				for (int i = 1; i <= n; ++i) {
+				/*for (int i = 1; i <= n; ++i) {
 					for (int j = 1; j <= n; ++j) {
 						if (d[i][j] < maxdist)
 							if (i > j) {
@@ -96,7 +98,7 @@ int Create(int n, int l) {
 							}
 					}
 
-				}
+				}*/
 				cout << "文件内容更新" << endl;
 
 
@@ -105,10 +107,7 @@ int Create(int n, int l) {
 				cout << "点" << a << "到点" << b << "的最短路径长度: " << dist[b] << endl;
 				cout << "点" << a << "到点" << b << "的路径为:";
 				printpath(pre, a, b);*/
-				int choice2;
-				cout << "输入1进行查询路由器并输出其路由表!" << endl;
-				cin >> choice2;
-				if (choice2 == 1) {
+				 /*
 					int p;
 					cout << "输入你要查询的路由器的路由表:";
 					cin >> p;
@@ -118,8 +117,8 @@ int Create(int n, int l) {
 								dist[i] = maxdist;
 							Dijkstra(b, p, dist, pre, d);
 							if (dist[b] != maxdist) {
-							cout << "点" << p << "到点" << b << "的最短路径长度: " << dist[b] << endl;
-							
+								cout << "点" << p << "到点" << b << "的最短路径长度: " << dist[b] << endl;
+
 								cout << "点" << p << "到点" << b << "的路径为:";
 								printpath(pre, p, b);
 							}
@@ -132,8 +131,7 @@ int Create(int n, int l) {
 							continue;
 						}
 					}
-				}
-				file.close();
+				*/
 
 			}
 					; break;
@@ -144,8 +142,8 @@ int Create(int n, int l) {
 
 				cout << "请输入你想要删除的边" << endl;
 
-				int t, k, h;
-				cin >> t >> k >> h;
+				int t, k;
+				cin >> t >> k;
 				for (int i = 1; i <= l; ++i)
 				{
 					d[t][k] = maxdist;      // p指向q
@@ -153,135 +151,17 @@ int Create(int n, int l) {
 				}
 				for (int i = 1; i <= n; ++i) {
 					for (int j = 1; j <= n; ++j) {
-						if (d[i][j] < maxdist)
-							if (i > j) {
-								file << i << " " << j << " " << d[i][j] << " ";
+						
+								cout  << d[i][j] << " ";
 							}
+					cout << endl;
 					}
-				}
+				
 				cout << "文件更新成功" << endl;
-				int choice3;
+			/*	int choice3;
 				cout << "输入1进行查询路由器并输出其路由表!" << endl;
 				cin >> choice3;
 				if (choice3 == 1) {
-					int p;
-					cout << "输入你要查询的路由器的路由表:";
-					cin >> p;
-					for (int b = 1; b <= n; b++) {
-						if (p != b) {
-							for (int i = 1; i <= b; ++i)
-								dist[i] = maxdist;
-							Dijkstra(b, p, dist, pre, d);
-							if (dist[b] != maxdist) {
-							cout << "点" << p << "到点" << b << "的最短路径长度: " << dist[b] << endl;
-							
-								cout << "点" << p << "到点" << b << "的路径为:";
-								printpath(pre, p, b);
-							}
-							else {
-								continue;
-
-							}
-
-						}
-						else {
-							break;// continue;
-						}
-					}
-				}file.close();
-			}
-					;
-					break;
-			case 3: {
-				ofstream file;
-				int ch3;
-				file.open("Dog.txt");
-
-
-				cout << "请输入你想要增加的结点数量" << endl;
-				int x;
-				cin >> x;
-				int temp;
-				temp = n;
-				n += x;
-				vector<vector<int>> g(n + 1, vector<int>(n + 1));
-				for (int i = 1; i <= temp; i++)
-				{
-					for (int j = 1; j <= temp; j++) {
-						g[i][j] = d[i][j];
-						g[j][i] = d[j][i];
-					}
-				}
-				for (int i = temp + 1; i <= n; i++)
-				{
-					for (int j = 1; j <= n; j++)
-						g[i][j] = maxdist;
-				}
-				for (int i = 1; i <= n; i++) {
-					for (int j = temp + 1; j <= n; j++) {
-						g[i][j] = maxdist;
-					}
-				}
-				cout << "请输入边的数量" << endl;
-				int o, u, v, f;
-				cin >> o;
-				cout << "请输入结点和边" << endl;
-				for (int i = 1; i <= o; ++i)
-				{
-					cin >> u >> v >> f;
-					if (f < g[u][v])       // 有重边
-					{
-						g[u][v] = f;      // p指向q
-						g[v][u] = f;      // q指向p，这样表示无向图
-					}
-				}
-				for (int i = 1; i <= n; i++) {
-					for (int j = 1; j <= n; j++) {
-						if (g[i][j] < maxdist) {
-							if (i > j) {
-								file << i << " " << j << " " << g[i][j] << " ";
-							}
-						}
-					}
-
-
-				}//矩阵输出，正常。
-				cout << "文件更新成功" << endl;
-				vector<int> dist1(n + 1), pre1(n + 1);
-				int p1;
-				cout << "输入你要查询的路由器的路由表:";
-				cin >> p1;
-
-				for (int b = 1; b <= n; b++) {
-					if (p1 != b) {
-
-						dist1[b] = maxdist;
-						Dijkstra(b, p1, dist1, pre1, g);
-						if (dist1[b] != maxdist) {
-						cout << "点" << p1 << "到点" << b << "的最短路径长度: " << dist1[b] << endl;
-						
-							cout << "点" << p1 << "到点" << b << "的路径为:";
-							printpath(pre1, p1, b);
-						}
-						else {
-							continue;
-						}
-					}
-
-					else {
-						continue;
-					}
-				}
-
-				file.close();
-			}
-					;
-					break;
-			case 4: {
-				int choice;
-				cout << "输入1进行查询路由器并输出其路由表!" << endl;
-				cin >> choice;
-				if (choice == 1) {
 					int p;
 					cout << "输入你要查询的路由器的路由表:";
 					cin >> p;
@@ -298,6 +178,119 @@ int Create(int n, int l) {
 							}
 							else {
 								continue;
+
+							}
+
+						}
+					else {*/
+			}
+							break;// continue;
+						
+					
+			
+					;
+					break;
+			case 3: {
+				ofstream file;
+				int ch3;
+				file.open("Dog.txt");
+
+
+				cout << "请输入你想要增加的结点数量" << endl;
+				int x;
+				cin >> x;
+				int temp;
+				temp = n;
+				n += x;
+				/*vector<vector<int>> g(n + 1, vector<int>(n + 1));
+				for (int i = 1; i <= temp; i++)
+				{
+					for (int j = 1; j <= temp; j++) {
+						g[i][j] = d[i][j];
+						g[j][i] = d[j][i];
+					}
+				}*/
+				for (int i = temp + 1; i <= n; i++)
+				{
+					for (int j = 1; j <= n; j++)
+						d[i][j] = maxdist;
+				}
+				for (int i = 1; i <= n; i++) {
+					for (int j = temp + 1; j <= n; j++) {
+						d[i][j] = maxdist;
+					}
+				}
+				cout << "请输入边的数量" << endl;
+				int o, u, v, f;
+				cin >> o;
+				cout << "请输入结点和边" << endl;
+				for (int i = 1; i <= o; ++i)
+				{
+					cin >> u >> v >> f;
+					if (f < d[u][v])       // 有重边
+					{
+						d[u][v] = f;      // p指向q
+						d[v][u] = f;
+						// q指向p，这样表示无向图
+					}
+				}
+
+
+
+				//矩阵输出，正常。
+				cout << "文件更新成功" << endl;
+			}
+				//vector<int> dist1(n + 5), pre1(n + 5);
+			/*	int p1;
+				cout << "输入你要查询的路由器的路由表:";
+				cin >> p1;
+
+				for (int b = 1; b <= n; b++) {
+					if (p1 != b) {
+
+						dist[b] = maxdist;
+						Dijkstra(b, p1, dist, pre, d);
+						if (dist[b] != maxdist) {
+							cout << "点" << p1 << "到点" << b << "的最短路径长度: " << dist[b] << "      ";
+
+							cout << "点" << p1 << "到点" << b << "的路径为:";
+							printpath(pre, p1, b);
+						}
+						else {
+							continue;
+						}
+					}
+
+					else {
+						continue;
+					}
+				}
+
+				file.close();
+			}*/
+					;
+					break;
+			case 4: {
+				int choice;
+				cout << "输入1进行查询路由器并输出其路由表!" << endl;
+				cin >> choice;
+				if (choice == 1) {
+					int p;
+					cout << "输入你要查询的路由器的路由表:";
+					cin >> p;
+					for (int b = 1; b <= n; b++) {
+						if (p != b) {
+							for (int i = 1; i <= b; ++i)
+								dist[i] = maxdist;
+							Dijkstra(b, p, dist, pre, d);
+							if (dist[b] != maxdist) {
+								cout << "点" << p << "到点" << b << "的最短路径长度: " << dist[b] << "   ";
+
+								cout << "点" << p << "到点" << b << "的路径为:";
+								printpath(pre, p, b);
+							}
+							else {
+								continue;
 							}
 						}
 
@@ -305,10 +298,11 @@ int Create(int n, int l) {
 							continue;
 						}
 					}
+				
 
 				}
-			
-			
+
+
 
 				break;
 			};
@@ -323,5 +317,6 @@ int Create(int n, int l) {
 		else {
 			cout << "输入错误请重新输入" << endl;
 		}
-		return n;
+	
 	}
+}
